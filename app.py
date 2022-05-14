@@ -3,18 +3,18 @@ import sqlite3, hashlib, os
 from werkzeug.utils import secure_filename
 from secrets import compare_digest
 
-from flask_principal import Principal, Permission, RoleNeed
+#from flask_principal import Principal, Permission, RoleNeed
 
-principals = Principal()
+#principals = Principal()
 # This could perhaps be a little more sophisticated, but it'll do.
-admin_permission = Permission(RoleNeed("admin"))
+#admin_permission = Permission(RoleNeed("admin"))
 
 app = Flask(__name__)
 app.secret_key = 'random string'
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set([ 'jpeg', 'jpg', 'png', 'gif' ])
 app.config[ 'UPLOAD_FOLDER' ] = UPLOAD_FOLDER
-app.admin_permission = admin_permission
+#app.admin_permission = admin_permission
 
 
 # favicon
@@ -53,7 +53,7 @@ def root():
     return render_template('home.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName,
                            noOfItems=noOfItems, categoryData=categoryData)
 
-@app.admin_permission.require(http_exception=404)
+#@app.admin_permission.require(http_exception=404)
 @app.route("/add")
 def admin():
     with sqlite3.connect('db/database.db') as conn:
