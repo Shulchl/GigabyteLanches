@@ -1,5 +1,7 @@
 database.session.sql
 db/database.db
 venv
-vscode
+.vscode
 __pycache__
+static/font-awesome
+.env
