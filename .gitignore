@@ -1,0 +1,5 @@
+database.session.sql
+db/database.db
+venv
+vscode
+__pycache__
