@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %} {% endblock %} - Gigabyte Lanches</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        
+        <link rel="stylesheet" href="{{ url_for('static', filename='OwlCarousel/dist/assets/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
+        <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome/css/fontawesome.min.css')}}">
+
+        <style>
+            #homeSlideImage1
+            {
+                background-image: url("{{ url_for('static', filename='images/slideImg/img1.jpg') }} ");
+                background-size: 1500px;
+                
+            }
+            #homeSlideImage2
+            {
+                background-image: url("{{ url_for('static', filename='images/slideImg/img2.jpg') }} ");
+                background-size: 1500px;
+                
+            }
+            #homeSlideImage3
+            {
+                background-image: url("{{ url_for('static', filename='images/slideImg/img3.jpg') }} ");
+                background-size: 1500px;
+                
+            }
+            #homeSlideImage4
+            {
+                background-image: url("{{ url_for('static', filename='images/slideImg/img4.jpg') }} ");
+                background-size: 1500px;
+                
+            }
+
+            @font-face { 
+                font-family: 'Futura Extra Black'; src: url( "{{ url_for('static', filename='dist/futura-extra-black-bt.ttf') }}" ); 
+            } 
+            h1 {
+                font-family: 'Futura Extra Black';
+                color: white;
+            }
+        </style>
+
+    </head>
+    <body>
+        <section class="content">
+            <header>
+                <div class="title" >
+                    <div id="navbar">
+                        <div class="logoImg" style="float: left;">
+                            <a href="/" style="display: block;">
+                                <img id="logo" src=" {{ url_for('static', filename='images/logo.png') }}" />
+                            </a>
+                        </div>
+                        <div id="sideMenu">
+                            <!--<form>
+                                <input id="searchBox" type="text" name="searchQuery">
+                                <input id="searchButton" type="submit" value="Search">
+                            </form>-->
+                    
+                            {% if not loggedIn %}
+                            <div id="signInButton" style="font-family: Futura Extra Black;">
+                                <a class="cartButtom" href="/loginForm">Área Restrita</a>
+                            </div>
+                            {% else %}
+                            <div class="dropdown">
+                                <button class="dropbtn">OLá, <br>{{firstName}}</button>
+                                <div class="dropdown-content">
+                                    <!--<a href="/account/orders">Your orders</a>
+                                    <a href="/account/profile">Your profile</a>-->
+                                    <hr>
+                                    <a href="/logout">Sair</a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <!--<div id="kart">
+                                <a class="link" href="/cart">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    CART {{noOfItems}}
+                                </a>
+                            </div>-->
+                        </div>
+                    </div>
+                    <svg viewBox="0 0 504 140" preserveAspectRatio="none"  width="auto" height="auto">
+                        <path d="M0.00,122.27 C216.83,192.92 304.30,60.39 500.00,109.03 L500.00,0.00 L0.00,0.00 Z" style="stroke: none;fill: rgba(238,49,53,255);"></path>
+                    </svg>
+                </div>
+            </header>
+            <div class="container">
+                {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+                {% endfor %}
+                {% block content %} {% endblock %}
+            </div>
+        </section>
+    </body>
+    <footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='OwlCarousel/dist/owl.carousel.min.js')}}"></script>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                items:1,
+                center:true,
+                loop:true,
+                margin:0,
+                nav:false,
+                autoWidth : true,
+                autoHeight:true,
+                autoplay:true,
+                merge:false,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:3
+                    },
+                    1000:{
+                        items:5
+                    }
+                },
+            })
+            $('.loop').owlCarousel({
+                center: true,
+                items:2,
+                loop:true,
+                margin:10,
+                responsive:{
+                    600:{
+                        items:4
+                    }
+                }
+            });
+            $('.nonloop').owlCarousel({
+                center: true,
+                items:2,
+                loop:false,
+                margin:10,
+                responsive:{
+                    600:{
+                        items:4
+                    }
+                }
+            });
+            
+        </script>
+    </footer>
+</html>

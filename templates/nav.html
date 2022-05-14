@@ -1,0 +1,31 @@
+<nav class="title">
+    <a href="/">
+        <img id="logo" src=" {{ url_for('static', filename='images/logo.png') }}" />
+    </a>
+    <form>
+        <input id="searchBox" type="text" name="searchQuery">
+        <input id="searchButton" type="submit" value="Search">
+    </form>
+
+    {% if not loggedIn %}
+    <div id="signInButton">
+        <a class="link" href="/loginForm">Área Restrita</a>
+    </div>
+    {% else %}
+    <div class="dropdown">
+        <button class="dropbtn">Hello, <br>{{firstName}}</button>
+        <div class="dropdown-content">
+            <!--<a href="/account/orders">Your orders</a>
+            <a href="/account/profile">Your profile</a>-->
+            <hr>
+            <a href="/logout">Sair</a>
+        </div>
+    </div>
+    {% endif %}
+    <div id="kart">
+        <a class="link" href="/cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            CART {{noOfItems}}
+        </a>
+    </div>
+</nav>

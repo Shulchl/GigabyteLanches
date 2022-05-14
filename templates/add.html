@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Add items{% endblock %}
+
+{% block content %}
+<div class="row">
+	<form action="/addItem" method="POST" enctype="multipart/form-data">
+		Name: <input type="text" name="name"><br>
+		Price: <input type="text" name="price"><br>
+		Description: <textarea name="description" rows=3 cols="40"></textarea><br>
+		Image: <input type="file" name="image"><br>
+		Stock: <input type="text" name="stock"><br>
+		{% if categories %}
+		<script>console.log("{{categories}}")</script>
+		Category: <select name="category">
+			{% for row in categories %}
+				<option value="{{row[0]}}">{{row[1]}}</option>
+			{% endfor %}
+		</select><br>
+		{% endif %}
+		Ou, adicione uma nova categoria: <input type="text" name="Addcategory"><br>
+		<input type="submit">
+	</form>
+</div>
+{% endblock %}

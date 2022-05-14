@@ -1,0 +1,675 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+header
+{
+	position: absolute;
+    width: 100%;
+	z-index: 10;
+}
+
+
+@media screen and (min-width: 1920px) {
+	body {
+		background: -webkit-gradient(linear, left top, left bottom, from(rgba(210,51,55,255)), to(rgba(55,48,46,255))) fixed;
+		/*background-image: linear-gradient(rgba(210,51,55,255),rgba(55,48,46,255));*/
+	}
+
+	#tableItems {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	#itemImage {
+		min-width: 120px;
+		max-width: 150px;
+		min-height: 120px;
+		max-height: 150px;
+
+		margin: 5px;
+	}
+
+	#itemName {
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 100px;
+		width: 200px;
+		float: left;
+	}
+
+	#titleName {
+		width: 200px;
+		float: left;
+	}
+
+	#titlePrice {
+		float: left;
+	}
+
+	#itemPrice {
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 100px;
+		display: inline-block;
+	}
+
+	#image {
+		height: 100px;
+		width: 80px;
+	}
+
+	#seperator {
+		margin: 0px;
+		max-width: 400px;
+	}
+
+	#total {
+		padding-left: 280px;
+	}
+
+	#itemNameTag {
+		font-weight: bold;
+	}
+
+	#subtotal {
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	table {
+		border-width: 10px;
+	}
+
+	#display {
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+
+	#productImage {
+		height: 200px;
+		width: 200px;
+		margin: 10px;
+		display: inline-block;
+		float: left;
+	}
+
+	#productDescription {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: inline-block;
+		font-size: 19px;
+	}
+
+	#descriptionTable td {
+		width: 150px;
+	}
+	#itemRow
+	{
+		display: inline-block;
+		text-align: center;
+		padding: 10px;
+		align-items: center;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	#addToCart {
+		font-size: 20px;
+	}
+
+	a#logoImg {
+		margin-left: 10%;
+		float: left;
+	}
+
+	#logo {
+		height: auto;
+		width: auto;
+		margin-left: 2in;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 20px;
+		display: inline-block;
+
+	}
+
+	.title {
+		/*background-color: rgb(146, 27, 27);*/
+		display: -webkit-inline-box;
+		overflow: hidden;
+		width: 80%;
+		height: 150px;
+		margin-left: 9.9%;
+	}
+
+	#sideMenu {
+		margin: 20px;
+		float: right;
+		display: inline-block;
+		justify-content: center;
+		align-content: center;
+	}
+
+	#searchBox {
+		float: left;
+		height: 20px;
+		margin: 20px;
+		font-size: 1.5em;
+	}
+
+	#searchButton {
+		height: 25px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-right: 20px;
+		float: right;
+	}
+
+	.dropbtn {
+		background-color: rgba(53, 11, 11, 0.719);
+		color: white;
+		padding: 16px;
+		font-size: 15px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.dropdown {
+		position: relative;
+		float: right;
+		margin-right: 1in;
+	}
+
+	.dropdown-content  {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	.dropdown-content a {
+		font-size: 14px;
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: #f1f1f1}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: gray;
+	}
+
+	#signInButton {
+		color: yellow;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		float: right;
+	}
+	#kart {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		float: right;
+	}
+
+	#cartIcon {
+		height: 30px;
+		width: 30px;
+	}
+
+	/* Waved navbar 
+
+	#wave {
+		position: relative;
+		height: 70px;
+		width: 600px;
+		background: #e0efe3;
+	}
+	#wave:before {
+		content: "";
+		display: block;
+		position: absolute;
+		border-radius: 100% 50%;
+		width: 340px;
+		height: 80px;
+		background-color: white;
+		right: -5px;
+		top: 40px;
+	}
+	#wave:after {
+		content: "";
+		display: block;
+		position: absolute;
+		border-radius: 100% 50%;
+		width: 300px;
+		height: 70px;
+		background-color: #e0efe3;
+		left: 0;
+		top: 27px;
+	}
+	*/
+
+	.cartButtom 
+	{
+		text-decoration: none;
+		background-color: rgba(53, 11, 11, 0.719);
+		color: white;
+		padding: 16px;
+		font-size: 15px;
+		border: none;
+		cursor: pointer;
+	}
+
+	/** base **/
+
+	.container
+	{
+		background-color: rgb(34, 34, 34);
+		padding: 0.2in;
+		box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+		border-radius: 5px;
+		width: 80%;
+		margin-left: 10%;
+		margin-right: 10%;
+		left: 0;
+		top: 0;
+		display: inline-block;
+	}
+
+	.row
+	{
+		margin-top: 1in;
+		height: auto;
+		padding: 0.3in;
+		font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		color:rgb(255, 255, 255);
+
+	}
+
+	.iTitle
+	{
+		align-items: center;
+		font-style:oblique;
+	}
+
+	#itemCollumn
+	{	
+		margin: auto;
+		width: auto;
+		display: inline-block;
+		float: left;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	#productName, #productPrice
+	{
+		margin: 0.1in;
+
+	}
+	#buttomCat {
+		font-size: 18px;
+		border: 2px solid #AD235E;
+		border-radius: 100px;
+		width: 150px;
+		height: 150px;
+	}
+
+	#rock {
+		background: url(https://www.teclasap.com.br/wp-content/uploads/2011/05/hamburger.jpg) no-repeat;
+	}
+}
+
+@media screen and (min-width: 720px) {
+	body {
+		background-color: rgba(210,51,55,255);
+	}
+
+	#tableItems {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	#itemImage {
+		min-width: 120px;
+		max-width: 150px;
+		min-height: 120px;
+		max-height: 150px;
+
+		margin: 5px;
+	}
+
+	#itemName {
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 100px;
+		width: 200px;
+		float: left;
+	}
+
+	#titleName {
+		width: 200px;
+		float: left;
+	}
+
+	#titlePrice {
+		float: left;
+	}
+
+	#itemPrice {
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		height: 100px;
+		display: inline-block;
+	}
+
+	#image {
+		height: 100px;
+		width: 80px;
+	}
+
+	#seperator {
+		margin: 0px;
+		max-width: 400px;
+	}
+
+	#total {
+		padding-left: 280px;
+	}
+
+	#itemNameTag {
+		font-weight: bold;
+	}
+
+	#subtotal {
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	table {
+		border-width: 10px;
+	}
+
+	#display {
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
+
+	#productImage {
+		height: 200px;
+		width: 200px;
+		margin: 10px;
+		display: inline-block;
+		float: left;
+	}
+
+	#productDescription {
+		margin-left: 20px;
+		margin-right: 20px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: inline-block;
+		font-size: 19px;
+	}
+
+	#descriptionTable td {
+		width: 150px;
+	}
+	#itemRow
+	{
+		display: inline-block;
+		text-align: center;
+		padding: 10px;
+		align-items: center;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	#addToCart {
+		font-size: 20px;
+	}
+
+	a#logoImg {
+		margin-left: 10%;
+		float: left;
+	}
+
+	#logo {
+		height: auto;
+		width: auto;
+		margin-left: 20px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-right: 20px;
+		display: inline-block;
+
+	}
+
+	.title {
+		/*background-color: rgb(146, 27, 27);*/
+		display: -webkit-inline-box;
+		overflow: hidden;
+		width: 80%;
+		height: 150px;
+		margin-left: 9.9%;
+	}
+
+	#sideMenu {
+		float: right;
+	}
+
+	#searchBox {
+		float: left;
+		height: 20px;
+		margin: 20px;
+		font-size: 1.5em;
+	}
+
+	#searchButton {
+		height: 25px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-right: 20px;
+		float: right;
+	}
+
+	.dropbtn {
+		background-color: rgba(53, 11, 11, 0.719);
+		color: white;
+		padding: 16px;
+		font-size: 20px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.dropdown {
+		position: relative;
+		float: right;
+		margin-right: 1in;
+	}
+
+	.dropdown-content  {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	.dropdown-content a {
+		font-size: 17px;
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {background-color: #f1f1f1}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: gray;
+	}
+
+	#signInButton {
+		color: yellow;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		float: right;
+	}
+	#kart {
+		color: white;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		float: right;
+	}
+
+	#cartIcon {
+		height: 30px;
+		width: 30px;
+	}
+
+	#navbar
+	{
+		width: 80%;
+		position: absolute;
+	}
+
+	/* Waved navbar 
+
+	#wave {
+		position: relative;
+		height: 70px;
+		width: 600px;
+		background: #e0efe3;
+	}
+	#wave:before {
+		content: "";
+		display: block;
+		position: absolute;
+		border-radius: 100% 50%;
+		width: 340px;
+		height: 80px;
+		background-color: white;
+		right: -5px;
+		top: 40px;
+	}
+	#wave:after {
+		content: "";
+		display: block;
+		position: absolute;
+		border-radius: 100% 50%;
+		width: 300px;
+		height: 70px;
+		background-color: #e0efe3;
+		left: 0;
+		top: 27px;
+	}
+	*/
+
+	.cartButtom 
+	{
+		text-decoration: none;
+		background-color: rgba(53, 11, 11, 0.719);
+		color: white;
+		padding: 16px;
+		font-size: 15px;
+		border: none;
+		cursor: pointer;
+	}
+
+	/** base **/
+
+	.container
+	{
+		background-color: rgb(34, 34, 34);
+		/* margin: 1in; */
+		box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+		border-radius: 5px;
+		width: 80%;
+		margin-top: auto;
+		margin-left: 10%;
+		margin-right: 10%;
+		left: 0;
+		top: 0;
+		display: inline-block;
+	}
+
+	.row
+	{
+		margin-top: 1in;
+		height: auto;
+		padding: 0.3in;
+		font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		color:rgb(255, 255, 255);
+
+	}
+
+	.iTitle
+	{
+		align-items: center;
+		font-style:oblique;
+	}
+
+	#itemCollumn
+	{	
+		margin: auto;
+		width: auto;
+		display: inline-block;
+		float: left;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
+
+	#productName, #productPrice
+	{
+		margin: 0.1in;
+
+	}
+	#buttomCat {
+		font-size: 18px;
+		border: 2px solid #AD235E;
+		border-radius: 100px;
+		width: 150px;
+		height: 150px;
+	}
+
+	#rock {
+		background: url(https://www.teclasap.com.br/wp-content/uploads/2011/05/hamburger.jpg) no-repeat;
+	}
+}
