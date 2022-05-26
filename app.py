@@ -5,14 +5,10 @@ from secrets import compare_digest
 import os
 
 app = Flask(__name__)
-app.secret_key = 'MEU AMIGÃOZÃO, MEU AMIGÃOZÃÃÃO'
+app.secret_key = 'random string'
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set([ 'jpeg', 'jpg', 'png', 'gif' ])
 app.config[ 'UPLOAD_FOLDER' ] = UPLOAD_FOLDER
-
-
-#app.admin_permission = admin_permission
-
 
 DATA_FOLDER = os.path.dirname(os.path.abspath(__file__))
 dataFile = os.path.join(DATA_FOLDER, 'db/database.db')
@@ -21,7 +17,7 @@ dataFile = os.path.join(DATA_FOLDER, 'db/database.db')
 # favicon
 @app.route('/favicon.ico')
 def favicon():
-    return url_for('static', filename='images/icons/android-chrome-192x192.png')
+    return url_for('static', filename='images/icons/favicon.ico')
 
 
 def getLoginDetails():
@@ -69,17 +65,14 @@ def add():
 def addItem():
     if request.method == "POST":
         name = request.form['name']
-        price = float(request.form['price'].replace(',', '.'))
+        price = float(request.form['price'])
         description = request.form['description']
         stock = int(request.form['stock'])
-        try:
-            addcat = request.form['Addcategory']
-        except:
-            addcat = None
-        if addcat is not None:
-            addcat = request.form['Addcategory']
+        categoryId = request.form['category']
+        addcat = request.form['Addcategory']
+        if addcat:
             if isinstance(addcat, str):
-                with sqlite3.connect(dataFile) as conn:
+                with sqlite3.connect('db/database.db') as conn:
                     try:
                         cur = conn.cursor()
                         cur.execute('''INSERT INTO categories (name) VALUES (?)''', (str(addcat), ))
@@ -91,9 +84,8 @@ def addItem():
                         conn.rollback()
                 print(msg)
                 conn.close()
-        else:
-            categoryId = int(request.form['category'])
-            
+            else:
+                categoryId = int(categoryId)            
         #Uploading image procedure
         image = request.files['image']
         if image and allowed_file(image.filename):
@@ -216,7 +208,6 @@ def displayCategory():
                     "categories.categoryId AND categories.categoryId = ?", (categoryId,))
         data = cur.fetchall()
     conn.close()
-    print(data)
     if data:
         categoryName = data[ 0 ][ 4 ]
     else:
@@ -307,8 +298,12 @@ def updateCat():
 
         conn.close()
         Response(msg)
-        print(msg)
         return redirect(url_for('root'))
+    categoryName = data[ 0 ][ 4 ]
+    data = parse(data)
+    return render_template('displayCategory.html', data=data, loggedIn=loggedIn,
+                           firstName=firstName, noOfItems=noOfItems, categoryName=categoryName)
+
 
 @app.route("/account/profile")
 def profileHome():
@@ -369,9 +364,11 @@ def changePassword():
                 except:
                     conn.rollback()
                     msg = "Failed"
+                Response(msg)
                 return render_template("user/changePassword.html", msg=msg)
             else:
                 msg = "Wrong password"
+        Response(msg)
         conn.close()
         return render_template("user/changePassword.html", msg=msg)
     else:
@@ -585,4 +582,4 @@ def parse(data):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
