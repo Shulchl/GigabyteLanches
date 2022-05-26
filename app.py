@@ -5,19 +5,18 @@ from secrets import compare_digest
 import os
 
 app = Flask(__name__)
-app.secret_key = 'random string'
-UPLOAD_FOLDER = 'static/uploads'
+app.secret_key = 'MEU AMIGÃOZÃO, MEU AMIGÃOZÃÃÃO'
+DATA_FOLDER = os.path.dirname(os.path.abspath(__file__))
+STATIC_FOLDER = os.path.join(DATA_FOLDER, 'static/')
+UPLOAD_FOLDER = os.path.join(DATA_FOLDER, 'static/uploads')
 ALLOWED_EXTENSIONS = set([ 'jpeg', 'jpg', 'png', 'gif' ])
 app.config[ 'UPLOAD_FOLDER' ] = UPLOAD_FOLDER
-
-DATA_FOLDER = os.path.dirname(os.path.abspath(__file__))
-dataFile = os.path.join(DATA_FOLDER, 'db/database.db')
 
 
 # favicon
 @app.route('/favicon.ico')
 def favicon():
-    return url_for('static', filename='images/icons/favicon.ico')
+    return url_for(STATIC_FOLDER, filename='images/icons/favicon.ico')
 
 
 def getLoginDetails():
