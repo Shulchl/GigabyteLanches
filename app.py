@@ -57,9 +57,9 @@ def add():
         cur.execute('SELECT productId, name, price, description, image, stock FROM products')
         data = cur.fetchall()
         cur.execute('SELECT categoryId, name, color FROM categories ORDER BY categoryId ASC')
-        categoryData = cur.fetchall()
+        categories = cur.fetchall()
     conn.close()
-    return render_template('product/add.html', data=data, categoryData=categoryData)
+    return render_template('product/add.html', data=data, categories=categories)
 
 @app.route("/addItem", methods=["GET", "POST"])
 def addItem():
