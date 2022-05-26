@@ -8,34 +8,78 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
         <link rel='stylesheet' href="{{ url_for('static', filename='font-awesome/css/fontawesome.min.css')}}">
 
+        <!--<link rel="shortcut icon" href="{{ url_for('static', filename='images/icons/favicon.ico') }}">-->
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='images/icons/apple-icon-57x57.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ url_for('static', filename='images/icons/apple-icon-60x60.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='images/icons/apple-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='images/icons/apple-icon-76x76.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='images/icons/apple-icon-114x114.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='images/icons/apple-icon-120x120.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='images/icons/apple-icon-144x144.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='images/icons/apple-icon-152x152.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/icons/apple-icon-180x180.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ url_for('static', filename='images/icons/android-icon-192x192.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/icons/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='images/icons/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/icons/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='images/icons/manifest.json') }}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{{ url_for('static', filename='images/icons/ms-icon-144x144.png') }}">
+        <meta name="theme-color" content="#ffffff">
+        
+        <meta name="viewport" content="width=device-width" , initial-scale=1>  
+
         <style>
             #homeSlideImage1
             {
-                background-image: url("{{ url_for('static', filename='images/slideImg/img1.jpg') }} ");
-                background-size: 1500px;
+                background-image: -webkit-linear-gradient(left, 
+                    rgb(34, 34, 34) 2%, 
+                    rgba(0,0,0,0) 20%,
+                    rgba(0,0,0,0) 80%,
+                    rgb(34, 34, 34) 100%
+                ), url("{{ url_for('static', filename='images/slideImg/img1.jpg') }} ");
+                background-size: 1600px;
                 
             }
             #homeSlideImage2
             {
-                background-image: url("{{ url_for('static', filename='images/slideImg/img2.jpg') }} ");
-                background-size: 1500px;
+                background-image: -webkit-linear-gradient(left, 
+                rgb(34, 34, 34) 2%, 
+                    rgba(0,0,0,0) 20%,
+                    rgba(0,0,0,0) 80%,
+                    rgb(34, 34, 34) 100%
+                ), url("{{ url_for('static', filename='images/slideImg/img2.jpg') }} ");
+                background-size: 1600px;
                 
             }
             #homeSlideImage3
             {
-                background-image: url("{{ url_for('static', filename='images/slideImg/img3.jpg') }} ");
-                background-size: 1500px;
+                background-image: -webkit-linear-gradient(left, 
+                rgb(34, 34, 34) 2%, 
+                    rgba(0,0,0,0) 20%,
+                    rgba(0,0,0,0) 80%,
+                    rgb(34, 34, 34) 100%
+                ), url("{{ url_for('static', filename='images/slideImg/img3.jpg') }} ");
+                background-size: 1600px;
                 
             }
             #homeSlideImage4
             {
-                background-image: url("{{ url_for('static', filename='images/slideImg/img4.jpg') }} ");
-                background-size: 1500px;
+                background-image: -webkit-linear-gradient(left, 
+                rgb(34, 34, 34) 2%, 
+                    rgba(0,0,0,0) 20%,
+                    rgba(0,0,0,0) 80%,
+                    rgb(34, 34, 34) 100%
+                ), url("{{ url_for('static', filename='images/slideImg/img4.jpg') }} ");
+                background-size: 1600px;
                 
             }
 
             @font-face { 
                 font-family: 'Futura Extra Black'; src: url( "{{ url_for('static', filename='dist/futura-extra-black-bt.ttf') }}" ); 
+            } 
+            @font-face { 
+                font-family: 'Futura Medium'; src: url( "{{ url_for('static', filename='dist/futura-medium-bt.ttf') }}" ); 
             } 
             h1 {
                 font-family: 'Futura Extra Black';
@@ -45,7 +89,7 @@
 
     </head>
     <body>
-        <section class="content">
+        <div class="content">
             <header>
                 <div class="title" >
                     <div id="navbar">
@@ -59,17 +103,27 @@
                                 <input id="searchBox" type="text" name="searchQuery">
                                 <input id="searchButton" type="submit" value="Search">
                             </form>-->
-                    
+                            <div class="credit-side">
+                                <img src={{url_for('static', filename='images/cartoes.png') }} id="creditImage"/>
+                                <div class="credit-text-1">
+                                    ENTREGAMOS EM DOMICÍLIO
+                                </div>
+                                <div class="credit-text-2">
+                                    taxa de entrega sob consulta
+                                </div>
+                            </div>
                             {% if not loggedIn %}
                             <div id="signInButton" style="font-family: Futura Extra Black;">
                                 <a class="cartButtom" href="/loginForm">Área Restrita</a>
                             </div>
                             {% else %}
                             <div class="dropdown">
-                                <button class="dropbtn">OLá, <br>{{firstName}}</button>
+                                <button class="dropbtn">Olá, <br>{{firstName}}</button>
                                 <div class="dropdown-content">
                                     <!--<a href="/account/orders">Your orders</a>
                                     <a href="/account/profile">Your profile</a>-->
+                                    <a href="/add">Adicionar Item</a>
+                                    <a href="/remove">Remover Item</a>
                                     <hr>
                                     <a href="/logout">Sair</a>
                                 </div>
@@ -83,7 +137,7 @@
                             </div>-->
                         </div>
                     </div>
-                    <svg viewBox="0 0 504 140" preserveAspectRatio="none"  width="auto" height="auto">
+                    <svg viewBox="0 0 500 140" preserveAspectRatio="none"  width="auto" height="auto">
                         <path d="M0.00,122.27 C216.83,192.92 304.30,60.39 500.00,109.03 L500.00,0.00 L0.00,0.00 Z" style="stroke: none;fill: rgba(238,49,53,255);"></path>
                     </svg>
                 </div>
@@ -94,57 +148,65 @@
                 {% endfor %}
                 {% block content %} {% endblock %}
             </div>
-        </section>
+        </div>
+        <footer class="footer-container">
+            <div class="social-container">
+                
+            </div>
+            <div class="copyright">
+                <P>
+                    GIGABYTE LANCHES © 2022 – TODOS OS DIREITOS RESERVADOS.
+                </P>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="{{ url_for('static', filename='OwlCarousel/dist/owl.carousel.min.js')}}"></script>
+            <script>
+                $('.owl-carousel').owlCarousel({
+                    items:1,
+                    center:true,
+                    loop:true,
+                    margin:0,
+                    nav:false,
+                    autoWidth : true,
+                    autoHeight:true,
+                    autoplay:true,
+                    merge:false,
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:3
+                        },
+                        1000:{
+                            items:5
+                        }
+                    },
+                })
+                $('.loop').owlCarousel({
+                    center: true,
+                    items:2,
+                    loop:true,
+                    margin:10,
+                    responsive:{
+                        600:{
+                            items:4
+                        }
+                    }
+                });
+                $('.nonloop').owlCarousel({
+                    center: true,
+                    items:2,
+                    loop:false,
+                    margin:10,
+                    responsive:{
+                        600:{
+                            items:4
+                        }
+                    }
+                });
+                
+            </script>
+        </footer>
     </body>
-    <footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="{{ url_for('static', filename='OwlCarousel/dist/owl.carousel.min.js')}}"></script>
-        <script>
-            $('.owl-carousel').owlCarousel({
-                items:1,
-                center:true,
-                loop:true,
-                margin:0,
-                nav:false,
-                autoWidth : true,
-                autoHeight:true,
-                autoplay:true,
-                merge:false,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:3
-                    },
-                    1000:{
-                        items:5
-                    }
-                },
-            })
-            $('.loop').owlCarousel({
-                center: true,
-                items:2,
-                loop:true,
-                margin:10,
-                responsive:{
-                    600:{
-                        items:4
-                    }
-                }
-            });
-            $('.nonloop').owlCarousel({
-                center: true,
-                items:2,
-                loop:false,
-                margin:10,
-                responsive:{
-                    600:{
-                        items:4
-                    }
-                }
-            });
-            
-        </script>
-    </footer>
 </html>

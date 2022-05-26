@@ -1,0 +1,5 @@
+Flask
+os
+Flask-Permissions
+flask-login
+Flask-SQLAlchemy
