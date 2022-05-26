@@ -68,11 +68,14 @@ def addItem():
         price = float(request.form['price'])
         description = request.form['description']
         stock = int(request.form['stock'])
-        categoryId = request.form['category']
-        addcat = request.form['Addcategory']
-        if addcat:
+        try:
+            addcat = request.form['Addcategory']
+        except:
+            addcat = None
+        if addcat is not None:
+            addcat = request.form['Addcategory']
             if isinstance(addcat, str):
-                with sqlite3.connect('db/database.db') as conn:
+                with sqlite3.connect(dataFile) as conn:
                     try:
                         cur = conn.cursor()
                         cur.execute('''INSERT INTO categories (name) VALUES (?)''', (str(addcat), ))
@@ -84,8 +87,8 @@ def addItem():
                         conn.rollback()
                 print(msg)
                 conn.close()
-            else:
-                categoryId = int(categoryId)            
+        else:
+            categoryId = int(request.form['category'])         
         #Uploading image procedure
         image = request.files['image']
         if image and allowed_file(image.filename):
