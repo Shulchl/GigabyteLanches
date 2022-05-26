@@ -5,8 +5,9 @@
 
 {% block content %}
 
-<div>
+<div id="opt-row">
 	<h2>Showing all products of Category {{categoryName}}:</h2>
+	<a href="/updateCategory?categoryId={{categoryId}}" class="link">Atualizar Categoria</a>
 	{% for itemData in data %}
 	<table>
 		<tr id="productName">

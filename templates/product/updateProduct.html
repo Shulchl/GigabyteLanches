@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block header %}
+	{% block title %}Atualizando Categorias{% endblock %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+        <div id="opt-row">
+            <form action="/updateProd?productId={{productId}}"  method="POST" enctype="multipart/form-data">
+                <label for="name">Número: </label>
+                <input type="text" name="name" value="{{productData[1]}}"><br>
+
+                <label for="price">Preço: </label>
+                <input type="text" name="price" value="{{productData[2]}}"><br>
+
+                <label for="description">Descrição: </label><br>
+                <textarea name="description" rows=2 cols="40">{{productData[3]}}</textarea><br>
+
+                <input type="file" name="image" value="{{productData[4]}}" class="custom-file-input"><br>
+
+                <label for="stock">Em Estoque: </label>
+                <input type="text" name="stock" value="{{productData[5]}}"><br>
+
+                {%- if categoryData %}
+                <!--<script>console.log("{{categoryData}}")</script>-->
+                <label for="category">Categoria:</label>
+                <select name="category">
+                    {%- for row in categoryData -%} 
+                        {%- if loop.index0 <= loop.length -%}
+
+                            {%- if row[0] == productData[6] %}
+                                <script>console.log("{{row}}"); console.log("{{productData[6]}}");</script>
+                                <option value="{{ categoryData[loop.index0][0] }}">{{ categoryData[loop.index0][1] }}</option>
+                            {%- endif -%}
+
+                            <option value="{{ categoryData[loop.index0][0] }}">{{ categoryData[loop.index0][1] }}</option>
+                            
+                        {%- endif -%}
+                        
+                    {%- endfor -%}
+                </select><br>
+                {% else %}
+                <label for="Addcategory">Adicione uma nova categoria:</label>
+                <input type="text" name="Addcategory"><br>
+                {% endif %}
+
+                
+                <button type="submit" class="submitButton">Atualizar projeto</button>
+            </form>
+
+        </div>
+	</div>
+{% endblock %}

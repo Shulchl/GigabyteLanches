@@ -4,22 +4,43 @@
 {% block content %}
 
 <div class="owl-carousel owl-theme">
-    <div class="item" id="homeSlideImage1" style="width:1500px; height:700px;"><h4>1</h4></div>
-    <div class="item" id="homeSlideImage2" style="width:1500px; height:700px;"><h4>2</h4></div>
-    <div class="item" id="homeSlideImage3" style="width:1500px; height:700px;"><h4>3</h4></div>
-    <div class="item" id="homeSlideImage4" style="width:1500px; height:700px;"><h4>4</h4></div>
+    <div class="item" id="homeSlideImage1" style="width:1600px; height:700px;"><h4>1</h4></div>
+    <div class="item" id="homeSlideImage2" style="width:1600px; height:700px;"><h4>2</h4></div>
+    <div class="item" id="homeSlideImage3" style="width:1600px; height:700px;"><h4>3</h4></div>
+    <div class="item" id="homeSlideImage4" style="width:1600px; height:700px;"><h4>4</h4></div>
 </div>
 
+<!-- 
+	Separator 
+--> 
+<div class="separator">
+	<svg viewBox="0 0 504 95" preserveAspectRatio="none"  width="auto" height="auto">
+		<path id="svg_1" fill=" rgba(238,49,53,255)" d="m0,34.02873c218.17917,19.66246 306.19343,-17.2217 503.11112,-3.6848l0,-30.34393l-505.11112,0l0,34.02873z" 
+		stroke=" none" transform="rotate(-180 251.555 19.9672)"/>
+		  <path id="svg_1" fill=" rgba(238,49,53,255)" d="m0,86.26908c218.17916,27.048 306.19343,-23.69044 505.11112,-5.06887l0,-41.74158l-505.11112,0l0,46.81045z" 
+		  stroke=" none"/>
+		<title>Escolha o número mais delicioso!</title>
+		<text transform="matrix(1 0 0 1 0 0)" xml:space="preserve" text-anchor="middle" font-family="Futura Extra Black" font-size="24" stroke-width="0" 
+			id="svg_2" y="55" x="255" stroke="#000000" fill="#ffffff">Escolha o mais saboroso!</text>
+	</svg>
+</div>
 <div class="row">
-	<h2 style="text-align: center;">Hamburgueres</h2>
+	<!-- 
+		Items row 
+	--> 
 	{% for data in itemData %}
 	<div id="itemRow">
 		{% for row in data %}
 		<div id="itemCollumn">
 
 			<div id="productName">
-				<div>
-					{{row[1]}}
+				<div class="cat-row">
+					<label for="numb" style="background-color: 
+											{%- for catItem in categoryData -%}
+												{%- if row[6] == catItem[0] -%}
+													{{ catItem[2] }} 
+												{%- endif -%}
+											{%- endfor -%}; position: absolute;display: block;"> {{row[1]}}</label>
 				</div>
 			</div>
 			<div id="productImage">
@@ -29,10 +50,20 @@
 					</a>
 				</div>
 			</div>
-			<div id="productPrice">
-				<div>
-					R${{row[2]}}
+			<div id="product-details">
+				<div id="productPrice">
+					<label for="#item-description">R$</label>{{row[2]}}
 				</div>
+				{% for catItem in categoryData %}
+					{% if catItem[0] == row[6] %}
+						<div id="item-description" style="background-color: {{ catItem[2] }};">
+							<p>
+
+								{{row[3]}}
+							</p>
+						</div>
+					{% endif %}
+				{% endfor %}
 			</div>
 		</div>
 		{% endfor %}
@@ -40,16 +71,21 @@
 	{% endfor %}
 </div>
 
+<!-- 
+	Categories row 
+--> 
 <div class="row">
 	<div class="displayCategory">
-		<div class="iTitle">
-			<h2>Categorias: </h2>
-		</div>
+		<!-- 
+			Separator 
+		--> 
+		<div class="cat-group">
 		{% for row in categoryData %}
-			<ul>
-				<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
-			</ul>
+			<div class="cat-row">
+				<label for="cat-link" style="background-color: {{row[2]}};"></label><a id="cat-link" href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a>
+			</div>
 		{% endfor %}
+		</div>
 	</div>
 </div>
 

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block header %}
+	{% block title %}Atualizando Categorias{% endblock %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+        <div id="opt-row">
+            <form action="/updateCat?categoryId={{ categoryId }}"   method="POST" enctype="multipart/form-data">
+                <label for="name">Número: </label>
+                <input type="text" name="name" value="{{data[0][1]}}"><br>
+
+                <input type="file" name="imgCat" value="{{data[0][2]}}" class="custom-file-input"><br>
+
+                <label for="color">Cor: </label>
+                <input type="color" name="color" value="{{data[0][3]}}"><br>
+                
+                <button type="submit" class="submitButton">Criar categoria</button>
+            </form>
+
+        </div>
+	</div>
+
+{% endblock %}

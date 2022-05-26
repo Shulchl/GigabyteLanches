@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Add items{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div id="opt-row">
+		<form action="/createCat" method="POST" enctype="multipart/form-data">
+			<label for="name">Nome: </label><br>
+			<input type="text" name="name"><br>
+
+			<label for="color">Cor</label>
+			<input type="color" name="color"><br>
+
+            <input type="file" name="imgCat" class="custom-file-input"><br>
+
+			<button type="submit" class="submitButton">Criar categoria</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

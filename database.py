@@ -3,6 +3,7 @@ import sqlite3
 conn = sqlite3.connect('db/database.db')
 
 # Create table
+
 conn.execute('''CREATE TABLE users 
                 (userId INTEGER PRIMARY KEY, 
                 password TEXT,
@@ -16,8 +17,9 @@ conn.execute('''CREATE TABLE users
                 state TEXT,
                 country TEXT, 
                 phone TEXT
-            )''')
-conn.execute('''CREATE TABLE products
+                )
+            ''')
+conn.execute('''CREATE TABLE products 
                 (productId INTEGER PRIMARY KEY,
                 name TEXT,
                 price REAL,
@@ -25,7 +27,8 @@ conn.execute('''CREATE TABLE products
                 image TEXT,
                 stock INTEGER,
                 categoryId INTEGER,
-                keyNumber TEXT
+                keyNumber TEXT,
+                orderId INTEGER,
                 FOREIGN KEY(categoryId) REFERENCES categories(categoryId)
                 )'''
              )
@@ -37,9 +40,10 @@ conn.execute('''CREATE TABLE kart
             )''')
 conn.execute('''CREATE TABLE categories
                 (categoryId INTEGER PRIMARY KEY,
-                name TEXT
-                color TEXT
+                name TEXT,
+                color TEXT,
                 imgCat TEXT
             )''')
+
 
 conn.close()
